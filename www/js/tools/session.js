@@ -11,7 +11,7 @@
             hasUserAuthenticated: function(){
                 return this.getCurrentUser() !== null;
             },
-            authenticate: function(user){
+            login: function(user){
                 return UserStorage.setUser(user);
             },
             logout: function(){

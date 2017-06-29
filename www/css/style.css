@@ -1,1 +1,7 @@
-/* Empty. Add your own CSS if you like */
+.center-align {
+  text-align: center;
+}
+
+.login-container {
+  padding-top: 100px;
+}

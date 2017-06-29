@@ -1,6 +1,21 @@
 <ion-view view-title="Bem Vindo">
     <ion-content class="no-header">
-      <br>
-      <h1 class="title">Login</h1>
+      <div class="login-container">
+        <h1 class="center-align">Signaling</h1>
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Email" ng-model="vm.loginData.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Senha" ng-model="vm.loginData.password">
+          </label>
+        </div>
+        <button class="button button-full button-balanced" ng-click="vm.login()">
+          Entrar
+        </button>
+        <button class="button button-full button-energized">
+          Cadastrar
+        </button>
+      </div>
     </ion-content>
 </ion-view>

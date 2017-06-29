@@ -4,7 +4,7 @@
         .factory('AuthResource', Service);
     Service.$inject = ['$q', 'ResourceFactory'];
     function Service($q, ResourceFactory) {
-        var Resource = ResourceFactory.resource("/auth/:action");
+        var Resource = ResourceFactory.make("/auth/:action");
         return {
             authenticateUser: function(email, password){
                 var authentication = new Resource({email: email, password: password});

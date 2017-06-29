@@ -12,7 +12,8 @@
                 url: '/index',
                 cache: false,
                 templateUrl: 'templates/main/index.html',
-                controller: 'IndexCtrl'
+                controller: 'IndexCtrl',
+                controllerAs: 'vm'
             });
 
         $urlRouterProvider.otherwise('/index');
