@@ -2,15 +2,15 @@
     angular
         .module('signaling')
         .factory('UserStorage', Service);
-    Service.$inject = ['LocalStorage'];
-    function Service(LocalStorage) {
+    Service.$inject = ['Storage'];
+    function Service(Storage) {
         return {
             setUser: function(user){
-                LocalStorage.put("session", user);
+              Storage.put("session", user);
             },
             getUser: function(){
                 try{
-                    return LocalStorage.get("session");
+                    return Storage.get("session");
                 }
                 catch (e){
                     return null;
