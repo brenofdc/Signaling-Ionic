@@ -11,7 +11,7 @@
                 var promise = $q.defer();
                 authentication.$authenticate({action: 'login'}).then(
                     function(response){
-                        promise.resolve(response.data);
+                        promise.resolve(response.user);
                     },
                     function(response){
                         promise.reject(response.reason);
