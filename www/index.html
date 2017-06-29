@@ -36,6 +36,9 @@
 
     <script src="js/main/index.controller.js"></script>
 
+    <script src="js/navbar/navbar.controller.js"></script>
+    <script src="js/navbar/sidenav.controller.js"></script>
+
     <script src="js/resource/resource.factory.js"></script>
     <script src="js/resource/auth.resource.js"></script>
     <script src="js/resource/report.resource.js"></script>
@@ -51,28 +54,28 @@
   <body ng-app="signaling">
 
     <ion-side-menus>
-      <ion-side-menu  side="left">
+      <ion-side-menu ng-controller="SidenavCtrl as sidenav" side="left">
         <ul class="list sidenav-list">
-          <a class="item item-icon-left">
+          <a class="item item-icon-left" ng-click="sidenav.press('profile')">
             <i class="icon ion-person"></i>
             Meu Perfil
           </a>
-          <a class="item item-icon-left">
+          <a class="item item-icon-left" ng-click="sidenav.press('reportList')">
             <i class="icon ion-search"></i>
             Lista de Casos
           </a>
-          <a class="item item-icon-left">
+          <a class="item item-icon-left" ng-click="sidenav.press('settings')">
             <i class="icon ion-gear-b"></i>
             Configurações
           </a>
-          <a class="item item-icon-left">
+          <a class="item item-icon-left" ng-click="sidenav.logout()">
             <i class="icon ion-android-exit"></i>
             Sair
           </a>
         </ul>
       </ion-side-menu>
       <ion-side-menu-content>
-        <ion-nav-bar class="bar-dark">
+        <ion-nav-bar class="bar-dark" ng-controller="NavbarCtrl as navbar" ng-show="navbar.showNavbar()">
           <ion-nav-buttons side="left">
             <button class="button button-icon icon ion-navicon light"></button>
           </ion-nav-buttons>
