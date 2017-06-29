@@ -22,7 +22,7 @@
             createUser: function(userData){
                 var newUser = new Resource(userData);
                 var promise = $q.defer();
-                newUser.$save({action: 'signup'}).then(
+                newUser.$authenticate({action: 'signup'}).then(
                     function(){
                       promise.resolve();
                     },

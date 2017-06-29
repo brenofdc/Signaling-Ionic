@@ -4,7 +4,7 @@
         .factory('ReportResource', Service);
     Service.$inject = ['$q', 'ResourceFactory'];
     function Service($q, ResourceFactory) {
-        var Resource = ResourceFactory.make("/api/report/:id/:action");
+        var Resource = ResourceFactory.make("/api/report/:id/:email/:action");
         return {
             createReport: function (reportData) {
                 var newReport = new Resource(reportData);
@@ -62,6 +62,20 @@
                 );
 
                 return promise.promise;
+            },
+            getUserReports: function(email){
+              var report = new Resource();
+              var promise = $q.defer();
+              report.$get({email: email, action: 'by-user'}).then(
+                function(response){
+                  promise.resolve(response.data);
+                },
+                function(response){
+                  promise.reject(response.reason);
+                }
+              );
+
+              return promise.promise;
             },
             editReport: function(id, newReportData){
                 var report = new Resource(newReportData);
