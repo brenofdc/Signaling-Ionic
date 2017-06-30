@@ -16,6 +16,7 @@
       vm.startRegister = startRegister;
       vm.cancelRegister = cancelRegister;
       vm.finishRegister = finishRegister;
+      vm.goToList = goToList;
 
       $ionicSideMenuDelegate.canDragContent(false);
       $ionicModal.fromTemplateUrl('register-modal.html', {scope: $scope}).then(function(modal) {
@@ -93,6 +94,10 @@
               return false;
             }
           });
+      }
+
+      function goToList(){
+        $state.go("reportList");
       }
     }
 })();
