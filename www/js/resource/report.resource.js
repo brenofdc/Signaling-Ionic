@@ -4,7 +4,7 @@
         .factory('ReportResource', Service);
     Service.$inject = ['$q', 'ResourceFactory'];
     function Service($q, ResourceFactory) {
-        var Resource = ResourceFactory.make("/api/report/:id/:action");
+        var Resource = ResourceFactory.make("/api/reports/:id/:action");
         return {
             createReport: function (reportData) {
                 var newReport = new Resource(reportData);

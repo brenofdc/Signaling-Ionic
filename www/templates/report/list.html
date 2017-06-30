@@ -1,5 +1,14 @@
 <ion-view view-title="Lista de Casos">
-    <ion-content class="no-header">
-      <h2>Lista de Casos</h2>
+    <ion-content>
+      <div ng-if="!vm.fetching">
+        <ul class="list" ng-if="vm.reports.length">
+          <li class="item item-icon-right" ng-repeat="report in vm.reports">
+              Caso {{vm.formatReportId(report.id)}}
+              <br>
+              <small class="item-subheader">{{report.date | date:'dd/MM/yyyy - HH:mm'}}</small>
+              <i class="icon ion-checkmark-circled" ng-if="report.status === 'closed'"></i>
+          </li>
+        </ul>
+      </div>
     </ion-content>
 </ion-view>
