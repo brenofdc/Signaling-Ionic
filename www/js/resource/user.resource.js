@@ -9,7 +9,7 @@
             updateUser: function(email, userData){
                 var userUpdate = new Resource(userData);
                 var promise = $q.defer();
-                userUpdate.$save({email: email}).then(
+                userUpdate.$update({email: email}).then(
                     function(){
                       promise.resolve();
                     },
