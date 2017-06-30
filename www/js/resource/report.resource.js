@@ -4,7 +4,7 @@
         .factory('ReportResource', Service);
     Service.$inject = ['$q', 'ResourceFactory'];
     function Service($q, ResourceFactory) {
-        var Resource = ResourceFactory.make("/api/report/:id/:email/:action");
+        var Resource = ResourceFactory.make("/api/report/:id/:action");
         return {
             createReport: function (reportData) {
                 var newReport = new Resource(reportData);
@@ -39,7 +39,7 @@
                 var promise = $q.defer();
                 report.$get({id: id}).then(
                     function(response){
-                      promise.resolve(response.data);
+                      promise.resolve(response.report);
                     },
                     function(response){
                         promise.reject(response.reason);
@@ -54,21 +54,21 @@
                 var promise = $q.defer();
                 reports.$get().then(
                     function(response){
-                      promise.resolve(response.data);
+                      promise.resolve(response.reports);
                     },
-                    function(response){
-                        promise.reject(response.reason);
+                    function(){
+                        promise.reject();
                     }
                 );
 
                 return promise.promise;
             },
-            getUserReports: function(email){
+            getUserReports: function(userId){
               var report = new Resource();
               var promise = $q.defer();
-              report.$get({email: email, action: 'by-user'}).then(
+              report.$get({id: userId, action: 'by-user'}).then(
                 function(response){
-                  promise.resolve(response.data);
+                  promise.resolve(response.reports);
                 },
                 function(response){
                   promise.reject(response.reason);
@@ -82,8 +82,8 @@
 
                 var promise = $q.defer();
                 report.$update({id: id}).then(
-                    function(response){
-                      promise.resolve(response.data);
+                    function(){
+                      promise.resolve();
                     },
                     function(response){
                       promise.reject(response.reason);

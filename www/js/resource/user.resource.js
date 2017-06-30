@@ -4,12 +4,12 @@
         .factory('UserResource', Service);
     Service.$inject = ['$q', 'ResourceFactory'];
     function Service($q, ResourceFactory) {
-        var Resource = ResourceFactory.make("/api/users/:email");
+        var Resource = ResourceFactory.make("/api/users/:id");
         return {
-            updateUser: function(email, userData){
+            updateUser: function(userId, userData){
                 var userUpdate = new Resource(userData);
                 var promise = $q.defer();
-                userUpdate.$update({email: email}).then(
+                userUpdate.$update({id: userId}).then(
                     function(){
                       promise.resolve();
                     },
