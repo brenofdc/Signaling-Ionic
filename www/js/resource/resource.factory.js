@@ -4,7 +4,7 @@
         .factory('ResourceFactory', Service);
     Service.$inject = ['$resource'];
     function Service($resource) {
-        var HOST = "http://0.0.0.0:8080";
+        var HOST = "http://private-aeaeb-signaling.apiary-mock.com";
         return {
             make: function(url){
                 return $resource(
