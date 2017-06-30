@@ -31,7 +31,7 @@
           AuthResource.authenticateUser(vm.loginData.email, vm.loginData.password)
             .then(function(user){
                 Session.login(user);
-                $state.go("dashboard");
+                $state.go("reportList");
               },
               function(error){
                 if (error === "authentication failed"){
