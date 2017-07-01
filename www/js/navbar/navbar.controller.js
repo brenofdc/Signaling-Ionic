@@ -26,8 +26,8 @@
 
     function goBack(){
       var backHistory = {
-          "report": "reportList",
-          "reportList": "index"
+        "report": "reportList",
+        "reportList": "index"
       };
       var state = $state.current.name;
       $state.go(backHistory[state]);

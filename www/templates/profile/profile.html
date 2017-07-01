@@ -1,35 +1,35 @@
 <ion-view view-title="Perfil">
-    <ion-content>
-      <div class="list card">
+  <ion-content>
+    <div class="list card">
 
-        <div class="item item-avatar item-icon-right">
-          <img src="../../img/profile.png">
-          <h2>{{vm.user.name}}</h2>
-          <p>
-            {{vm.user.email}}
-            <br>
-            {{vm.user.cpf}}
-          </p>
-          <i class="icon ion-edit energized" ng-click="vm.startEdit()"></i>
-        </div>
-
-        <div class="item item-body" ng-if="vm.reports">
-          <h3 class="center-align">Meus Casos</h3>
-          <ul class="list" ng-if="vm.reports.length">
-            <li class="item item-icon-right" ng-repeat="report in vm.reports" ng-click="vm.goToReport(report.id)">
-              Caso {{report.id | reportId}}
-              <br>
-              <span class="item-subheader">{{report.description}}</span>
-              <br>
-              <span class="item-subheader-date">{{report.date | date:'dd/MM/yyyy - HH:mm'}}</span>
-              <i class="icon ion-checkmark-circled" ng-if="report.status === 'closed'"></i>
-            </li>
-          </ul>
-          <h4 class="center-align" ng-if="!vm.reports.length">
-            Você não possui nenhum caso ainda.
-          </h4>
-        </div>
-
+      <div class="item item-avatar item-icon-right">
+        <img src="../../img/profile.png">
+        <h2>{{vm.user.name}}</h2>
+        <p>
+          {{vm.user.email}}
+          <br>
+          {{vm.user.cpf}}
+        </p>
+        <i class="icon ion-edit energized" ng-click="vm.startEdit()"></i>
       </div>
-    </ion-content>
+
+      <div class="item item-body" ng-if="vm.reports">
+        <h3 class="center-align">Meus Casos</h3>
+        <ul class="list" ng-if="vm.reports.length">
+          <li class="item item-icon-right" ng-repeat="report in vm.reports" ng-click="vm.goToReport(report.id)">
+            Caso {{report.id | reportId}}
+            <br>
+            <span class="item-subheader">{{report.description}}</span>
+            <br>
+            <span class="item-subheader-date">{{report.date | date:'dd/MM/yyyy - HH:mm'}}</span>
+            <i class="icon ion-checkmark-circled" ng-if="report.status === 'closed'"></i>
+          </li>
+        </ul>
+        <h4 class="center-align" ng-if="!vm.reports.length">
+          Você não possui nenhum caso ainda.
+        </h4>
+      </div>
+
+    </div>
+  </ion-content>
 </ion-view>

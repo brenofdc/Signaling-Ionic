@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
-    <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
 
-    <!-- un-comment this code to enable service worker
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      }
-    </script>-->
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/angular-resource/angular-resource.min.js"></script>
-    <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/angular-resource/angular-resource.min.js"></script>
+  <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
 
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyA7fG3x0dLtBNBXwtHpm3RlD5z7vNicGTc"></script>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyA7fG3x0dLtBNBXwtHpm3RlD5z7vNicGTc"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/routes.js"></script>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
 
 
 
-    <script src="js/main/index.controller.js"></script>
+  <script src="js/main/index.controller.js"></script>
 
-    <script src="js/navbar/navbar.controller.js"></script>
-    <script src="js/navbar/sidenav.controller.js"></script>
+  <script src="js/navbar/navbar.controller.js"></script>
+  <script src="js/navbar/sidenav.controller.js"></script>
 
-    <script src="js/report/report_list.controller.js"></script>
-    <script src="js/report/report.controller.js"></script>
+  <script src="js/report/report_list.controller.js"></script>
+  <script src="js/report/report.controller.js"></script>
 
-    <script src="js/profile/profile.controller.js"></script>
+  <script src="js/profile/profile.controller.js"></script>
 
-    <script src="js/resource/resource.factory.js"></script>
-    <script src="js/resource/auth.resource.js"></script>
-    <script src="js/resource/report.resource.js"></script>
-    <script src="js/resource/user.resource.js"></script>
+  <script src="js/resource/resource.factory.js"></script>
+  <script src="js/resource/auth.resource.js"></script>
+  <script src="js/resource/report.resource.js"></script>
+  <script src="js/resource/user.resource.js"></script>
 
-    <script src="js/storage/storage.js"></script>
-    <script src="js/storage/user.js"></script>
+  <script src="js/storage/storage.js"></script>
+  <script src="js/storage/user.js"></script>
 
-    <script src="js/tools/popup.js"></script>
-    <script src="js/tools/session.js"></script>
-    <script src="js/tools/report.filter.js"></script>
+  <script src="js/tools/popup.js"></script>
+  <script src="js/tools/session.js"></script>
+  <script src="js/tools/report.filter.js"></script>
 
-  </head>
-  <body ng-app="signaling">
+</head>
+<body ng-app="signaling">
 
-    <ion-side-menus>
-      <ion-side-menu ng-controller="SidenavCtrl as sidenav" side="left">
-        <ul class="list sidenav-list">
-          <a class="item item-icon-left" ng-click="sidenav.press('profile')">
-            <i class="icon ion-person"></i>
-            Meu Perfil
-          </a>
-          <a class="item item-icon-left" ng-click="sidenav.press('reportList')">
-            <i class="icon ion-search"></i>
-            Lista de Casos
-          </a>
-          <a class="item item-icon-left" ng-click="sidenav.press('settings')">
-            <i class="icon ion-gear-b"></i>
-            Configurações
-          </a>
-          <a class="item item-icon-left" ng-click="sidenav.logout()">
-            <i class="icon ion-android-exit"></i>
-            Sair
-          </a>
-        </ul>
-      </ion-side-menu>
-      <ion-side-menu-content>
-        <ion-nav-bar class="bar-dark" ng-controller="NavbarCtrl as navbar" ng-show="navbar.showNavbar()">
-          <ion-nav-buttons side="left">
-            <button class="button button-icon icon ion-android-arrow-back light" ng-hide="navbar.hasSidenav()" ng-click="navbar.goBack()"></button>
-            <button class="button button-icon icon ion-navicon light" ng-show="navbar.hasSidenav()" ng-click="navbar.toggleSidenav()"></button>
-          </ion-nav-buttons>
-        </ion-nav-bar>
-        <ion-nav-view>
-        </ion-nav-view>
-      </ion-side-menu-content>
-    </ion-side-menus>
-  </body>
+<ion-side-menus>
+  <ion-side-menu ng-controller="SidenavCtrl as sidenav" side="left">
+    <ul class="list sidenav-list">
+      <a class="item item-icon-left" ng-click="sidenav.press('profile')">
+        <i class="icon ion-person"></i>
+        Meu Perfil
+      </a>
+      <a class="item item-icon-left" ng-click="sidenav.press('reportList')">
+        <i class="icon ion-search"></i>
+        Lista de Casos
+      </a>
+      <a class="item item-icon-left" ng-click="sidenav.press('settings')">
+        <i class="icon ion-gear-b"></i>
+        Configurações
+      </a>
+      <a class="item item-icon-left" ng-click="sidenav.logout()">
+        <i class="icon ion-android-exit"></i>
+        Sair
+      </a>
+    </ul>
+  </ion-side-menu>
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-dark" ng-controller="NavbarCtrl as navbar" ng-show="navbar.showNavbar()">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-android-arrow-back light" ng-hide="navbar.hasSidenav()" ng-click="navbar.goBack()"></button>
+        <button class="button button-icon icon ion-navicon light" ng-show="navbar.hasSidenav()" ng-click="navbar.toggleSidenav()"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view>
+    </ion-nav-view>
+  </ion-side-menu-content>
+</ion-side-menus>
+</body>
 </html>

@@ -22,11 +22,11 @@
     function loadReports(){
       ReportResource.getUserReports(vm.user.id)
         .then(function(reports){
-          vm.reports = reports;
-        },
-        function(){
-          $state.go('reportList');
-        });
+            vm.reports = reports;
+          },
+          function(){
+            $state.go('reportList');
+          });
     }
 
     function goToReport(id){

@@ -1,26 +1,26 @@
 <ion-view view-title="Bem Vindo">
-    <ion-content class="no-header">
-      <div class="login-container">
-        <h1 class="center-align">Signaling</h1>
-        <div class="list">
-          <label class="item item-input">
-            <input type="text" placeholder="Email" ng-model="vm.loginData.email">
-          </label>
-          <label class="item item-input">
-            <input type="password" placeholder="Senha" ng-model="vm.loginData.password">
-          </label>
-        </div>
-        <button class="button button-full button-balanced" ng-click="vm.login()">
-          Entrar
-        </button>
-        <button class="button button-full button-energized" ng-click="vm.startRegister()">
-          Cadastrar
-        </button>
-        <br>
-        <br>
-        <button class="button button-full button-positive" ng-click="vm.goToList()">
-          Lista de Casos
-        </button>
+  <ion-content class="no-header">
+    <div class="login-container">
+      <h1 class="center-align">Signaling</h1>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Email" ng-model="vm.loginData.email">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Senha" ng-model="vm.loginData.password">
+        </label>
       </div>
-    </ion-content>
+      <button class="button button-full button-balanced" ng-click="vm.login()">
+        Entrar
+      </button>
+      <button class="button button-full button-energized" ng-click="vm.startRegister()">
+        Cadastrar
+      </button>
+      <br>
+      <br>
+      <button class="button button-full button-positive" ng-click="vm.goToList()">
+        Lista de Casos
+      </button>
+    </div>
+  </ion-content>
 </ion-view>

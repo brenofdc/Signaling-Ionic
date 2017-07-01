@@ -18,11 +18,11 @@
     function loadReport(){
       ReportResource.getReport(vm.id)
         .then(function(report){
-          vm.report = report;
-        },
-        function(){
-          $state.go('reportList');
-        });
+            vm.report = report;
+          },
+          function(){
+            $state.go('reportList');
+          });
     }
 
     function canManage(){
@@ -31,8 +31,8 @@
       }
 
       return vm.report.status !== 'closed' &&
-          Session.hasUserAuthenticated() &&
-          Session.getCurrentUser().id === vm.report.user_id;
+        Session.hasUserAuthenticated() &&
+        Session.getCurrentUser().id === vm.report.user_id;
     }
 
     function hasLatLong(){
