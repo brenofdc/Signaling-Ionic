@@ -9,6 +9,7 @@
             updateUser: function(userId, userData){
                 var userUpdate = new Resource(userData);
                 var promise = $q.defer();
+              console.log("resource");
                 userUpdate.$update({id: userId}).then(
                     function(){
                       promise.resolve();
