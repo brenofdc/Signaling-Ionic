@@ -48,6 +48,13 @@
         controller: 'NewReportCtrl',
         controllerAs: 'vm'
       })
+      .state('editReport', {
+        url: '/editReport/:reportId',
+        cache: false,
+        templateUrl: 'templates/report/edit_report.html',
+        controller: 'EditReportCtrl',
+        controllerAs: 'vm'
+      })
       .state('profile', {
         url: '/profile',
         cache: false,

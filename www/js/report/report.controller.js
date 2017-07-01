@@ -14,6 +14,7 @@
     vm.hasLatLong = hasLatLong;
     vm.deleteReport = deleteReport;
     vm.closeReport = closeReport;
+    vm.editReport = editReport;
 
     function loadReport(){
       ReportResource.getReport(vm.id)
@@ -79,6 +80,10 @@
           }
         ]
       });
+    }
+
+    function editReport(){
+      $state.go('editReport', {reportId: vm.id});
     }
 
     loadReport();
