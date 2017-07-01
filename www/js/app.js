@@ -5,9 +5,8 @@
   angular.module('signaling')
     .run(OnRun);
 
-  OnRun.$inject = ['$ionicPlatform', '$rootScope', '$state'];
-
-  function OnRun($ionicPlatform, $rootScope, $state) {
+  OnRun.$inject = ['$ionicPlatform', '$ionicSideMenuDelegate', '$rootScope', '$state', 'Session'];
+  function OnRun($ionicPlatform, $ionicSideMenuDelegate, $rootScope, $state, Session) {
 
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
       if (error === 'no_auth'){
@@ -15,6 +14,16 @@
       }
       else if (error === 'already_auth'){
         $state.go('reportList');
+      }
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+      console.log(Session.hasUserAuthenticated());
+      if (Session.hasUserAuthenticated()){
+        $ionicSideMenuDelegate.canDragContent(true);
+      }
+      else {
+        $ionicSideMenuDelegate.canDragContent(false);
       }
     });
 

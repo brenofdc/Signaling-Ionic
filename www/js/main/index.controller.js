@@ -3,8 +3,8 @@
         .module('signaling')
         .controller('IndexCtrl', Controller);
 
-    Controller.$inject = ['$scope', '$ionicSideMenuDelegate', '$ionicModal', '$state', 'Popup', 'Session', 'AuthResource'];
-    function Controller($scope, $ionicSideMenuDelegate, $ionicModal, $state, Popup, Session, AuthResource) {
+    Controller.$inject = ['$scope', '$ionicModal', '$state', 'Popup', 'Session', 'AuthResource'];
+    function Controller($scope, $ionicModal, $state, Popup, Session, AuthResource) {
       var vm = this;
 
       vm.loginData = {
@@ -18,7 +18,6 @@
       vm.finishRegister = finishRegister;
       vm.goToList = goToList;
 
-      $ionicSideMenuDelegate.canDragContent(false);
       $ionicModal.fromTemplateUrl('register-modal.html', {scope: $scope}).then(function(modal) {
         vm.modal = modal;
       });
