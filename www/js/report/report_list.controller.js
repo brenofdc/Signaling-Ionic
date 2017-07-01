@@ -3,8 +3,8 @@
     .module('signaling')
     .controller('ReportListCtrl', Controller);
 
-  Controller.$inject = ['$ionicSideMenuDelegate', 'ReportResource', 'Session'];
-  function Controller($ionicSideMenuDelegate, ReportResource, Session) {
+  Controller.$inject = ['$ionicSideMenuDelegate', '$state', 'ReportResource', 'Session'];
+  function Controller($ionicSideMenuDelegate, $state, ReportResource, Session) {
 
     var vm = this;
 
@@ -12,6 +12,7 @@
     vm.fetching = false;
 
     vm.formatReportId = formatReportId;
+    vm.goToReport = goToReport;
 
     if (!Session.hasUserAuthenticated()){
       $ionicSideMenuDelegate.canDragContent(false);
@@ -31,6 +32,10 @@
       var str = id + "";
       while (str.length < zeroes) str = "0" + str;
       return str;
+    }
+
+    function goToReport(id){
+      $state.go('report', {reportId: id});
     }
 
     loadReports();

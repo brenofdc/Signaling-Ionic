@@ -2,8 +2,8 @@
     <ion-content>
       <div ng-if="!vm.fetching">
         <ul class="list" ng-if="vm.reports.length">
-          <li class="item item-icon-right" ng-repeat="report in vm.reports">
-              Caso {{vm.formatReportId(report.id)}}
+          <li class="item item-icon-right" ng-repeat="report in vm.reports" ng-click="vm.goToReport(report.id)">
+              Caso {{report.id | reportId}}
               <br>
               <span class="item-subheader">{{report.description}}</span>
               <br>

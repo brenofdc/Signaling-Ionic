@@ -1,0 +1,15 @@
+<ion-view view-title="Caso {{vm.id | reportId}}">
+    <ion-content>
+      <div ng-if="vm.report">
+        <h5>Relatado em {{vm.report.date | date:'dd/MM/yyyy - HH:mm'}}</h5>
+        <p>{{vm.report.description}}</p>
+        <p><b>Local:</b> {{vm.report.address}}</p>
+        <p><b>Solução:</b> {{vm.report.proposal}}</p>
+        <div class="right-align">
+          <button class="button button-icon icon ion-close assertive"></button>
+          <button class="button button-icon icon ion-checkmark balanced"></button>
+          <button class="button button-icon icon ion-edit energized"></button>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

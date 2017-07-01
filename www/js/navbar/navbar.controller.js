@@ -10,7 +10,7 @@
     vm.showNavbar = showNavbar;
     vm.toggleSidenav = toggleSidenav;
     vm.hasSidenav = hasSidenav;
-    vm.backToLogin = backToLogin;
+    vm.goBack = goBack;
 
     function showNavbar(){
       return !$state.is("index");
@@ -24,8 +24,13 @@
       return Session.hasUserAuthenticated();
     }
 
-    function backToLogin(){
-      $state.go('index');
+    function goBack(){
+      var backHistory = {
+          "report": "reportList",
+          "reportList": "index"
+      };
+      var state = $state.current.name;
+      $state.go(backHistory[state]);
     }
   }
 })();

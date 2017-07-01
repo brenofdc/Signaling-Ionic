@@ -21,6 +21,13 @@
                 templateUrl: 'templates/report/list.html',
                 controller: 'ReportListCtrl',
                 controllerAs: 'vm'
+            })
+            .state('report', {
+                url: '/report/:reportId',
+                cache: false,
+                templateUrl: 'templates/report/report.html',
+                controller: 'ReportCtrl',
+                controllerAs: 'vm'
             });
 
         $urlRouterProvider.otherwise('/index');
