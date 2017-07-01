@@ -22,9 +22,8 @@
       ReportResource.getAllReports()
         .then(function(reports){
           vm.reports = reports;
-          console.log(reports)
           vm.fetching = false;
-        })
+        });
     }
 
     function formatReportId(id){
