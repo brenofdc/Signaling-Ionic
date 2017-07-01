@@ -1,8 +1,15 @@
 <ion-view view-title="Lista de Casos">
   <ion-content>
     <div ng-if="!vm.fetching">
+      <label class="item item-input item-stacked-label padding">
+        <span class="input-label">Buscar</span>
+        <input type="text" ng-model="vm.search">
+      </label>
       <ul class="list" ng-if="vm.reports.length">
-        <li class="item item-icon-right" ng-repeat="report in vm.reports" ng-click="vm.goToReport(report.id)">
+        <li class="item item-icon-right"
+            ng-repeat="report in vm.reports"
+            ng-if="vm.matchesSearch(report)"
+            ng-click="vm.goToReport(report.id)">
           Caso {{report.id | reportId}}
           <br>
           <span class="item-subheader">{{report.description}}</span>
@@ -11,6 +18,7 @@
           <i class="icon ion-checkmark-circled" ng-if="report.status === 'closed'"></i>
         </li>
       </ul>
+      <h4 class="center-align" ng-if="!vm.isShowingReports()">Nenhum caso encontrado</h4>
     </div>
   </ion-content>
 </ion-view>
