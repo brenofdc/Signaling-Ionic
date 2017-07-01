@@ -1,6 +1,6 @@
 (function() {
 
-  angular.module('signaling', ['ionic', 'ngResource']);
+  angular.module('signaling', ['ionic', 'ngResource', 'ngMap']);
 
   angular.module('signaling')
     .run(OnRun);
