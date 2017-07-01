@@ -1,6 +1,14 @@
 <ion-view view-title="Caso {{vm.id | reportId}}">
   <ion-content>
     <div ng-if="vm.report">
+      <br>
+      <div ng-if="vm.report.status === 'closed'">
+        <div class="bar bar-header bar-balanced">
+          <h1 class="title">Caso Solucionado! <i class="icon ion-checkmark-circled"></i></h1>
+        </div>
+        <br>
+        <br>
+      </div>
       <p>{{vm.report.description}}</p>
       <p>Relatado em {{vm.report.date | date:'dd/MM/yyyy - HH:mm'}}</p>
       <p><b>Solução:</b> {{vm.report.proposal}}</p>
