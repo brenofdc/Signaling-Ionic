@@ -13,7 +13,7 @@
           <i class="icon ion-edit energized"></i>
         </div>
 
-        <div class="item item-body">
+        <div class="item item-body" ng-if="vm.reports">
           <h3 class="center-align">Meus Casos</h3>
           <ul class="list" ng-if="vm.reports.length">
             <li class="item item-icon-right" ng-repeat="report in vm.reports" ng-click="vm.goToReport(report.id)">
@@ -25,6 +25,9 @@
               <i class="icon ion-checkmark-circled" ng-if="report.status === 'closed'"></i>
             </li>
           </ul>
+          <h4 class="center-align" ng-if="!vm.reports.length">
+            Você não possui nenhum caso ainda.
+          </h4>
         </div>
 
       </div>
