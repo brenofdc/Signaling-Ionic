@@ -18,7 +18,7 @@
       vm.finishRegister = finishRegister;
       vm.goToList = goToList;
 
-      $ionicModal.fromTemplateUrl('register-modal.html', {scope: $scope}).then(function(modal) {
+      $ionicModal.fromTemplateUrl('/templates/main/register.html', {scope: $scope}).then(function(modal) {
         vm.modal = modal;
       });
 

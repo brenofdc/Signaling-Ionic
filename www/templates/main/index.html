@@ -22,47 +22,5 @@
           Lista de Casos
         </button>
       </div>
-      <script id="register-modal.html" type="text/ng-template">
-        <ion-modal-view>
-          <ion-header-bar>
-            <h1 class="title">Cadastro de Usuário</h1>
-            <button class="button button-icon icon ion-close" ng-click="vm.cancelRegister()"></button>
-          </ion-header-bar>
-          <ion-content>
-            <div class="list">
-              <label class="item item-input item-stacked-label padding">
-                <span class="input-label">CPF (apenas números)</span>
-                <input type="number" ng-model="vm.newUser.cpf">
-              </label>
-              <label class="item item-input item-stacked-label padding">
-                <span class="input-label">Nome Completo</span>
-                <input type="text" ng-model="vm.newUser.name">
-              </label>
-              <label class="item item-input item-stacked-label padding">
-                <span class="input-label">E-mail</span>
-                <input type="email" ng-model="vm.newUser.email">
-              </label>
-              <label class="item item-input item-stacked-label padding">
-                <span class="input-label">Senha</span>
-                <input type="password" ng-model="vm.newUser.password">
-              </label>
-              <label class="item item-input item-stacked-label padding">
-                <span class="input-label">Repita a Senha</span>
-                <input type="password" ng-model="vm.newUser.repeatPassword">
-              </label>
-            </div>
-            <div ng-if="vm.makingRegister" class="center-align">
-              <ion-spinner></ion-spinner>
-              <br>
-              <br>
-            </div>
-            <div class="center-align">
-              <button class="button button-balanced" ng-click="vm.finishRegister()">
-                Cadastrar
-              </button>
-            </div>
-          </ion-content>
-        </ion-modal-view>
-      </script>
     </ion-content>
 </ion-view>
