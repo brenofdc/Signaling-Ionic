@@ -1,14 +1,14 @@
 <ion-view view-title="Caso {{vm.id | reportId}}">
     <ion-content>
       <div ng-if="vm.report">
-        <h5>Relatado em {{vm.report.date | date:'dd/MM/yyyy - HH:mm'}}</h5>
         <p>{{vm.report.description}}</p>
+        <p>Relatado em {{vm.report.date | date:'dd/MM/yyyy - HH:mm'}}</p>
         <p><b>Solução:</b> {{vm.report.proposal}}</p>
         <p><b>Local:</b> {{vm.report.address}}</p>
-        <ng-map center="{{vm.report.lat}}, {{vm.report.long}}" zoom="12"">
+        <ng-map ng-if="vm.hasLatLong()" center="{{vm.report.lat}}, {{vm.report.long}}" zoom="12"">
           <marker position="{{vm.report.lat}}, {{vm.report.long}}"></marker>
         </ng-map>
-        <div class="right-align">
+        <div ng-if="vm.canManage()" class="right-align">
           <button class="button button-icon icon ion-close assertive"></button>
           <button class="button button-icon icon ion-checkmark balanced"></button>
           <button class="button button-icon icon ion-edit energized"></button>
