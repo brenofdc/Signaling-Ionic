@@ -1,0 +1,32 @@
+<ion-view view-title="Perfil">
+    <ion-content>
+      <div class="list card">
+
+        <div class="item item-avatar item-icon-right">
+          <img src="../../img/profile.png">
+          <h2>{{vm.user.name}}</h2>
+          <p>
+            {{vm.user.email}}
+            <br>
+            {{vm.user.cpf}}
+          </p>
+          <i class="icon ion-edit energized"></i>
+        </div>
+
+        <div class="item item-body">
+          <h3 class="center-align">Meus Casos</h3>
+          <ul class="list" ng-if="vm.reports.length">
+            <li class="item item-icon-right" ng-repeat="report in vm.reports" ng-click="vm.goToReport(report.id)">
+              Caso {{report.id | reportId}}
+              <br>
+              <span class="item-subheader">{{report.description}}</span>
+              <br>
+              <span class="item-subheader-date">{{report.date | date:'dd/MM/yyyy - HH:mm'}}</span>
+              <i class="icon ion-checkmark-circled" ng-if="report.status === 'closed'"></i>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </ion-content>
+</ion-view>

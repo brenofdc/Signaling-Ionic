@@ -18,7 +18,6 @@
     });
 
     $rootScope.$on('$stateChangeSuccess', function () {
-      console.log(Session.hasUserAuthenticated());
       if (Session.hasUserAuthenticated()){
         $ionicSideMenuDelegate.canDragContent(true);
       }

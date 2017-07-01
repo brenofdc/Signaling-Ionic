@@ -40,6 +40,16 @@
         templateUrl: 'templates/report/report.html',
         controller: 'ReportCtrl',
         controllerAs: 'vm'
+      })
+      .state('profile', {
+        url: '/profile',
+        cache: false,
+        templateUrl: 'templates/profile/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          auth: Authenticated
+        }
       });
 
     $urlRouterProvider.otherwise('/index');
