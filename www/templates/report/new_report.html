@@ -1,0 +1,29 @@
+<ion-view view-title="Novo Caso">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-stacked-label padding">
+        <span class="input-label">Descrição do Problema*</span>
+        <input type="text" ng-model="vm.newReport.description">
+      </label>
+      <label class="item item-input item-stacked-label padding">
+        <span class="input-label">Sugestão de Solução*</span>
+        <input type="text" ng-model="vm.newReport.proposal">
+      </label>
+      <label class="item item-input item-stacked-label padding">
+        <span class="input-label">Endereço*</span>
+        <input type="text" ng-model="vm.newReport.address">
+      </label>
+    </div>
+    <span class="input-label label-padding">Posição no Mapa</span>
+    <ng-map center="current-location" zoom="12" geo-fallback-center="-16.6862, -49.2648" on-click="vm.pickLocation()">
+      <marker ng-if="vm.startedLocation" position="{{vm.newReport.lat}}, {{vm.newReport.long}}"></marker>
+    </ng-map>
+    <br>
+    <div class="center-align">
+      <button class="button button-balanced" ng-click="vm.saveNewReport()">
+        Enviar
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
+

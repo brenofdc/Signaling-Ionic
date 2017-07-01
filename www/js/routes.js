@@ -41,6 +41,13 @@
         controller: 'ReportCtrl',
         controllerAs: 'vm'
       })
+      .state('newReport', {
+        url: '/newReport',
+        cache: false,
+        templateUrl: 'templates/report/new_report.html',
+        controller: 'NewReportCtrl',
+        controllerAs: 'vm'
+      })
       .state('profile', {
         url: '/profile',
         cache: false,

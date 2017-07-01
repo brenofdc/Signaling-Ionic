@@ -6,7 +6,7 @@
       <p><b>Solução:</b> {{vm.report.proposal}}</p>
       <p><b>Local:</b> {{vm.report.address}}</p>
       <ng-map ng-if="vm.hasLatLong()" center="{{vm.report.lat}}, {{vm.report.long}}" zoom="12"">
-      <marker position="{{vm.report.lat}}, {{vm.report.long}}"></marker>
+        <marker position="{{vm.report.lat}}, {{vm.report.long}}"></marker>
       </ng-map>
       <div ng-if="vm.canManage()" class="right-align">
         <button class="button button-icon icon ion-close assertive" ng-click="vm.deleteReport()"></button>
