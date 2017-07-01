@@ -9,8 +9,8 @@
           <marker position="{{vm.report.lat}}, {{vm.report.long}}"></marker>
         </ng-map>
         <div ng-if="vm.canManage()" class="right-align">
-          <button class="button button-icon icon ion-close assertive"></button>
-          <button class="button button-icon icon ion-checkmark balanced"></button>
+          <button class="button button-icon icon ion-close assertive" ng-click="vm.deleteReport()"></button>
+          <button class="button button-icon icon ion-checkmark balanced" ng-click="vm.closeReport()"></button>
           <button class="button button-icon icon ion-edit energized"></button>
         </div>
       </div>

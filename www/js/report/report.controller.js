@@ -3,8 +3,8 @@
     .module('signaling')
     .controller('ReportCtrl', Controller);
 
-  Controller.$inject = ['$state', 'ReportResource', 'Session'];
-  function Controller($state, ReportResource, Session) {
+  Controller.$inject = ['$state', '$ionicPopup', 'ReportResource', 'Session'];
+  function Controller($state, $ionicPopup, ReportResource, Session) {
 
     var vm = this;
 
@@ -12,6 +12,8 @@
 
     vm.canManage = canManage;
     vm.hasLatLong = hasLatLong;
+    vm.deleteReport = deleteReport;
+    vm.closeReport = closeReport;
 
     function loadReport(){
       ReportResource.getReport(vm.id)
@@ -39,6 +41,44 @@
       }
 
       return !!vm.report.lat && !!vm.report.long;
+    }
+
+    function deleteReport(){
+      $ionicPopup.show({
+        template: '',
+        title: 'Deletar caso',
+        subTitle: 'Deseja mesmo deletar este caso? Esta ação é irreversível.',
+        buttons: [
+          { text: 'Não' },
+          {
+            text: '<b>Sim</b>',
+            type: 'button-assertive',
+            onTap: function(e) {
+              ReportResource.deleteReport(vm.id);
+              $state.go("reportList");
+            }
+          }
+        ]
+      });
+    }
+
+    function closeReport(){
+      $ionicPopup.show({
+        template: '',
+        title: 'Finalizar caso',
+        subTitle: 'Deseja mesmo marcar este caso como finalizado? Esta ação é irreversível.',
+        buttons: [
+          { text: 'Não' },
+          {
+            text: '<b>Sim</b>',
+            type: 'button-balanced',
+            onTap: function(e) {
+              ReportResource.closeReport(vm.id);
+              $state.go("reportList");
+            }
+          }
+        ]
+      });
     }
 
     loadReport();
