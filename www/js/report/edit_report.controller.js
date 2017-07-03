@@ -47,7 +47,7 @@
     }
 
     function saveReport(){
-      if (!vm.report.description || !vm.report.proposal || !vm.report.address){
+      if (!vm.report.description || !vm.report.address){
         Popup.error('Preencha todos os campos corretamente.');
         return false;
       }

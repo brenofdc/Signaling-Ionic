@@ -32,7 +32,7 @@
     }
 
     function saveNewReport(){
-      if (!vm.newReport.description || !vm.newReport.proposal || !vm.newReport.address){
+      if (!vm.newReport.description || !vm.newReport.address){
         Popup.error('Preencha todos os campos corretamente.');
         return false;
       }
