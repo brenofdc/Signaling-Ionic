@@ -3,8 +3,8 @@
     .module('signaling')
     .controller('EditReportCtrl', Controller);
 
-  Controller.$inject = ['$state', 'ReportResource', 'Session', 'Popup'];
-  function Controller($state, ReportResource, Session, Popup) {
+  Controller.$inject = ['$state', 'ReportResource', 'Session', 'Popup', 'GeoCoder'];
+  function Controller($state, ReportResource, Session, Popup, GeoCoder) {
 
     var vm = this;
 
@@ -44,6 +44,11 @@
       var ll = event.latLng;
       vm.report.lat = ll.lat();
       vm.report.long = ll.lng();
+      GeoCoder.geocode( { 'latLng': ll }).then(function(results){
+        if (results.length){
+          vm.report.address = results[0].formatted_address;
+        }
+      });
     }
 
     function saveReport(){
